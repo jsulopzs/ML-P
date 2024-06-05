@@ -16,11 +16,11 @@ with open(path_model, 'rb') as f:
 with st.sidebar.form('price'):
     
     your_house = {
-        'BEDROOMS': st.number_input('BEDROOMS', 3),
-        'BATHROOMS': st.number_input('BATHROOMS', 2),
-        'GARAGE': st.number_input('GARAGE', 2),
-        'FLOOR_AREA': st.number_input('FLOOR_AREA', 200),
-        'BUILD_YEAR': st.number_input('BUILD_YEAR', 2000)
+        'BEDROOMS': st.number_input('BEDROOMS'),
+        'BATHROOMS': st.number_input('BATHROOMS'),
+        'GARAGE': st.number_input('GARAGE'),
+        'FLOOR_AREA': st.number_input('FLOOR_AREA'),
+        'BUILD_YEAR': st.number_input('BUILD_YEAR')
     }
     
     submit = st.form_submit_button('Calculate')
