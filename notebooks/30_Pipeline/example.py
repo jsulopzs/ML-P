@@ -1,9 +1,9 @@
-import pandas as pd
-import pickle
-import json
-import os
 import streamlit as st
-    
+import json
+import pickle
+import pandas as pd
+import os
+
 dir = os.path.dirname(os.path.abspath(__file__))
 
 path = os.path.join(dir, 'src/options_categorical.json')
@@ -18,6 +18,7 @@ path = os.path.join(dir, 'artifacts/pipeline.pkl')
 with open(path, 'rb') as f:
     model = pickle.load(f)
 
+
 data_input = {}
 with st.sidebar.form(key='form'):
     
@@ -30,7 +31,8 @@ with st.sidebar.form(key='form'):
         data_input[key] = st.number_input(key, value=value)
 
     button = st.form_submit_button('Submit')
-
+        
+    
 if button:
     
     st.write('Based on the information you provided:')
