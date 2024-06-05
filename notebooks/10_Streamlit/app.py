@@ -2,6 +2,15 @@ import pandas as pd
 import pickle
 import streamlit as st
 
+## Load trained model
+import os
+
+file_directory = os.path.dirname(os.path.abspath(__file__))
+path_model = os.path.join(file_directory, 'artifacts/model.pkl')
+
+with open(path_model, 'rb') as f:
+    model = pickle.load(f)
+    
 # Load trained ML model to make predictions on new data
 ## Form data
 with st.sidebar.form('price'):
@@ -18,11 +27,6 @@ with st.sidebar.form('price'):
 
 name = 'Wall Street'
 df_house = pd.DataFrame(your_house, index=[name])
-
-## Load trained model
-
-with open('artifacts/model.pkl', 'rb') as f:
-    model = pickle.load(f)
     
 ## Calculate prediction
 y_pred = model.predict(df_house)[0]
